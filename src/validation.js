@@ -8,6 +8,3 @@ function isValidAmount(amount) {
 
 module.exports = { isValidName, isValidAmount };
 
-function isValidAmount(amount) {
-    return typeof amount === "number" && amount > 0; // BUG : 0 n'est plus accepté
-}
