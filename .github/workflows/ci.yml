@@ -15,6 +15,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+          cache: "npm" # NOUVEAU
       - run: npm ci
       - run: npm run lint
 
@@ -27,6 +28,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+          cache: "npm" # NOUVEAU
       - run: npm ci
       - name: Tests unitaires
         run: npm test
@@ -42,9 +44,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+          cache: "npm" # NOUVEAU
       - run: npm ci --omit=dev # Seulement les dépendances de production
       - run: npm run build
       - name: Résumé
         run: |
           echo "## CI FinTrack API" >> $GITHUB_STEP_SUMMARY
-          echo "Commit \`${{ github.sha }}\` : lint, tests et build OK" >> $GITHUB_STEP_SUMMARY
+          echo "Commit \`${{ github.sha }}\` : lint, tests et build OK (avec cache npm)" >> $GITHUB_STEP_SUMMARY
